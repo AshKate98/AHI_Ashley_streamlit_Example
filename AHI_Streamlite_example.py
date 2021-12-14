@@ -151,6 +151,11 @@ st.markdown('Inpatient Q: What is New york states Top average drg payment?')
 st.markdown('A: Here we can see that for NY NY drg_definition 003 - ECMO OR TRACH W MV >96 HRS OR PDX EXC FACE, MOUTH & NECK W MAJOR had the largest total payment of $5,509,499.3400')
 st.markdown('CA leads the most for total averge discharge payments for 853 - INFECTIOUS & PARASITIC DISEASES W O.R. PROCEDURE W MCC $8,380,247.9500')
 
+st.markdown('Merging of Datasets to show SBU Hospital values')
+df_Hospital['provider_id'] = df_Hospital['provider_id'].astype(str)
+df_Outpatient['provider_id'] = df_Outpatient['provider_id'].astype(str)
+
+df_merged = df_Outpatient.merge(df_Hospital, how='left', left_on='provider_id', right_on='provider_id')
 
 
 
