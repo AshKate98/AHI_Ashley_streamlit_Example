@@ -170,7 +170,7 @@ st.header('Carolina East Medical Center')
 df_merged_clean_CEMC = df_merged_clean[df_merged_clean['hospital_name'] == 'CAROLINA EAST MEDICAL CENTER']
 df_merged_clean_CEMC
 
-st.header('Comparison of CEMC and SBU Hopsitals')
+st.header('Comparison of CEMC and SBU Hospitals')
 final_df_comparison = pd.concat([df_merged_clean_CEMC, df_merged_clean_SB])
 st.dataframe(final_df_comparison)
 
