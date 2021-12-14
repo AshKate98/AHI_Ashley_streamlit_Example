@@ -165,7 +165,7 @@ st.dataframe(df_merged_clean)
 
 df_merged_clean_SB = df_merged_clean[df_merged_clean['hospital_name'] == 'SUNY/STONY BROOK UNIVERSITY HOSPITAL']
 df_merged_clean_SB
-st.dataframe(df_merged_clean_SB
-df_merged = df_Outpatient.merge(df_Hospital, how='left', left_on='provider_id', right_on='provider_id')
+st.dataframe(df_merged_clean_SB)
+
 
 
