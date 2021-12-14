@@ -127,6 +127,7 @@ costs_condition_hospital = df_Inpatient.groupby(['provider_state', 'drg_definiti
 
 st.header("Costs by Condition and Hospital - Average Total Payments")
 st.dataframe(costs_condition_hospital)
+
 st.markdown('Here we can see the total breakdown of each drg definition by state and average total payments')
 st.markdown('Inpatient Q: What is New york states Top average drg payment?')
 st.markdown('A: Here we can see that for NY NY drg_definition 003 - ECMO OR TRACH W MV >96 HRS OR PDX EXC FACE, MOUTH & NECK W MAJOR had the largest total payment of $5,509,499.3400')
@@ -135,8 +136,7 @@ st.markdown('CA leads the most for total averge discharge payments for 853 - INF
 st.header('The total average payments for provider id, drg definitions, and each total average payment')
 st.dataframe(costs_condition_hospital)
 
-st.header("Costs by Condition and Hospital - Average Total Payments")
-st.dataframe(costs_condition_hospital)
+
 
 
 
