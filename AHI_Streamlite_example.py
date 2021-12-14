@@ -122,6 +122,8 @@ st.subheader('Pie Chart of Inpatient Facilities by state')
 fig = px.pie(bar1, values='provider_state', names='index')
 st.plotly_chart(fig)
 
-st.subheader('Ttotal discharges per state for Inpatient')
-
+st.subheader('Total discharges per state for Inpatient')
+st.subheader('Total Discharge Pivot Table')
+dataframe_pivot = df_Inpatient.pivot_table(index=['provider_state','totatl_discharges'],values=['total_discharges'],aggfunc='count')
+st.dataframe(dataframe_pivot)
 
