@@ -33,7 +33,7 @@ def load_Outpatient():
     df_Outpatient = pd.read_csv('https://raw.githubusercontent.com/hantswilliams/AHI_STATS_507/main/Week13_Summary/output/df_outpatient.csv')
     return df_outpatient
   
-st.header('Hospital Data')
+st.header('Hospital Data Set')
 st.dataframe(df_Hospital)
 
 st.subheader('Hospital Type')
@@ -56,7 +56,7 @@ st.subheader('Hospital Type - NY')
 bar1 = hospitals_ny['hospital_type'].value_counts().reset_index()
 st.dataframe(bar1)
 
-st.markdown('The majority of hospitals in NY are acute care, followed by psychiatric which for all states overall is different since we see critical care has the wnd most total number of hospitals')
+st.markdown('The majority of hospitals in NY are acute care, followed by psychiatric which for all states overall is different since we see critical care has the 2nd most total number of hospitals')
 
 st.header('NY Hospital type Breakdown')
 st.subheader('With a PIE Chart:')
