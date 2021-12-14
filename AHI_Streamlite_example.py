@@ -67,7 +67,7 @@ st.subheader('Hospital data Pivot Table')
 dataframe_pivot = df_Hospital.pivot_table(index=['hospital_ownership','hospital_type'],values=['hospital_overall_rating'],aggfunc='count')
 st.dataframe(dataframe_pivot)
 
-st.subheader('Acute Care Hospitals with 1 rating')
+st.subheader('Acute Care Hospitals in NY with 1 rating')
 State_acute_1 = df_Hospital[df_Hospital['state'] == 'NY']
 bar2 = State_acute_1['hospital_overall_rating'].value_counts().reset_index()
 st.dataframe(bar2)
@@ -75,7 +75,8 @@ st.dataframe(bar2)
 st.subheader('Bar chart displaying Acute Care Hopitals within NY with 1 rating:')
 fig3 = px.bar(bar2, x='index', y='hospital_overall_rating')
 st.plotly_chart(fig3)
-
+st.markdown('Hospital Q: What are the most common hospital type in NY & what is the breakdown of acute care hospitals in NY tjat are 1 overall?')
+st,markdown('Hospital A: The most common Hopsital type in NY is acute care hospitals with 144 acute care hospitals and the total number of 46 acute care hopsitals in ny have a 1 rating.')
 st.header('Outpatient Data')
 st.dataframe(df_Outpatient)
 
