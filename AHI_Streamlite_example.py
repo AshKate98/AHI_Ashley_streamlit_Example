@@ -10,7 +10,7 @@ import numpy as np
 import plotly.express as px
 
 st.title('Streamlit Final Assingment')
-st.write('Hello Everybody') 
+st.write('Hello Everybody!') 
 
 df_Hospital = pd.read_csv('https://raw.githubusercontent.com/hantswilliams/AHI_DataSci_507/main/Deployment_Streamlit/hospital_info.csv')
 
