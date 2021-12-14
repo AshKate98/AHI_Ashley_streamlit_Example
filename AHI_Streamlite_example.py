@@ -85,8 +85,8 @@ st.dataframe(bar2)
 st.subheader('Bar chart displaying Acute Care Hospitals within NY with 1 rating:')
 fig3 = px.bar(bar2, x='index', y='hospital_overall_rating')
 st.plotly_chart(fig3)
-st.markdown('Hospital Q: What are the most common hospital type in NY & what is the breakdown of acute care hospitals in NY tjat are 1 overall?')
-st.markdown('Hospital A: The most common Hopsital type in NY is acute care hospitals with 144 acute care hospitals and the total number of 46 acute care hopsitals in ny have a 1 rating.')
+st.markdown('Hospital Q: What are the most common hospital type in NY & what is the breakdown of acute care hospitals in NY that are ranked 1 overall?')
+st.markdown('Hospital A: The most common Hopsital type in NY is acute care hospitals with 144 acute care hospitals and the total number of 46 acute care hopsitals in NY have a 1 rating.')
 
 st.header('Outpatient Data')
 st.dataframe(df_Outpatient)
@@ -100,17 +100,15 @@ fig = px.pie(bar1, values='provider_state', names='index')
 st.plotly_chart(fig)
 
 st.markdown('Outpatient Q: What states have the most outpatient facilities?')
-st.markdown('A: From the above chart we can see that Texas has the most outpatient facilities with 2205, California 2nd with 2,113, and Pennsylvania 3rd with 1,667')
+st.markdown('Outpatient A: From the above chart we can see that Texas has the most outpatient facilities with 2205, California 2nd with 2,113, and Pennsylvania 3rd with 1,667')
 st.markdown('Lets see a comparison between NY and NC')
 
 st.subheader('Map of NY Hospital Locations')
-
 hospitals_ny_gps = hospitals_ny['location'].str.strip('()').str.split(' ', expand=True).rename(columns={0: 'Point', 1:'lon', 2:'lat'})  
 hospitals_ny_gps['lon'] = hospitals_ny_gps['lon'].str.strip('(')
 hospitals_ny_gps = hospitals_ny_gps.dropna()
 hospitals_ny_gps['lon'] = pd.to_numeric(hospitals_ny_gps['lon'])
 hospitals_ny_gps['lat'] = pd.to_numeric(hospitals_ny_gps['lat'])
-
 st.map(hospitals_ny_gps)
 
 st.subheader('Outpatient providers in the state of NY')
@@ -155,7 +153,7 @@ st.dataframe(costs_condition_hospital)
 
 st.markdown('Here we can see the total breakdown of each drg definition by state and average total payments')
 st.markdown('Inpatient Q: What is New york states Top average drg payment?')
-st.markdown('A: Here we can see that for NY NY drg_definition 003 - ECMO OR TRACH W MV >96 HRS OR PDX EXC FACE, MOUTH & NECK W MAJOR had the largest total payment of $5,509,499.3400')
+st.markdown('Inpatient A: Here we can see that for NY NY drg_definition 003 - ECMO OR TRACH W MV >96 HRS OR PDX EXC FACE, MOUTH & NECK W MAJOR had the largest total payment of $5,509,499.3400')
 st.markdown('CA leads the most for total averge discharge payments for 853 - INFECTIOUS & PARASITIC DISEASES W O.R. PROCEDURE W MCC $8,380,247.9500')
 
 st.markdown('Merging of Datasets to show SBU Hospital values')
@@ -182,10 +180,6 @@ final_df_comparison = pd.concat([df_merged_clean_CEMC, df_merged_clean_SB])
 st.dataframe(final_df_comparison)
 
 st.subheader('Final Comparison Pivot Table')
-dataframe_pivot = final_df_comparison.pivot_table(index=['hospital_name','apc'],values=['average_total_payments'],aggfunc='count')
-st.dataframe(dataframe_pivot)
-
-st.subheader('Final Comparison Pivot Table')
 dataframe_pivot = final_df_comparison.pivot_table(index=['hospital_name','apc'],values=['average_total_payments'],aggfunc='mean')
 st.dataframe(dataframe_pivot)
 
@@ -194,13 +188,16 @@ st.subheader('Bar chart displaying SBU and CEMC differences between average tota
 fig3 = px.bar(bar2, x='index', y='hospital_name')
 st.plotly_chart(fig3)
 st.dataframe(bar2)
+st.markdown('Showing the total difference between average total payments between CEMC and SBU hospitals.')
+st.markdown('SBU Hospital Question: What is the difference between total payment for Stony Brook Hospital compared to another hospital from a different state?')
+st.markdown('SBU Hospital Answer: The total average payments between Stony Brook University hospital and Carolina East Medical Center(CEMC) as we can also see CEMC is a government- Hospital District or Authority and stony brook ownership is by Government-state.') 
+st.markdown('Here we can see Stony Brook Hospital has 0 apcs for 0012, 0015 debridment compared to CEMC, and we see that Stony Brook University Hospital from this pivot table has higher cost of average total payments with Endoscopy upper airway compared to CEMC with approximately 6588 compared to Stony Brook's 8645.')
 
-st.subheader('SBU Hospital Q: What are the most expensive apc for SBU Hopsital?')
 st.subheader('Pivot APC for SBU Hospital')
 dataframe_pivot = df_merged_clean_SB.pivot_table(index=['provider_id','apc'],values=['average_total_payments'],aggfunc='mean')
 st.dataframe(dataframe_pivot)
 st.markdown('SBU Hospital Q: What are the most expensive apc for SBU Hopsital?')
-st.markdown('Answer:The most expensive average total cost for APC in the outpatient and hospital dataframe with SBU hospital are the following')
+st.markdown('SBU Answer:The most expensive average total cost for APC in the outpatient and hospital dataframe with SBU hospital are the following')
 st.markdown('1. Level IV endoscopy 2307.21, 2. Level IV Nerver Injections 1325.64, 3. Level II Cardiac Imaging 1300.67')
 
 st.header('Merging of Hospital and Inpatient data sets')
@@ -211,14 +208,13 @@ df_merged_clean2 = df_merged2[df_merged2['hospital_name'].notna()]
 df_merged_clean_SB2 = df_merged_clean2[df_merged_clean2['provider_id'] == '330393']
 df_merged_clean_SB2
 
-st.subheader('SBU Hospital Inpatient Q: What are the most expesive drugs comparing Stony Brook average total payments for DRG?')
 st.header('Pivot table for average cost of each DRG for SBU Hospital')
 st.subheader('Pivot DRG for SBU Hospital')
 dataframe_pivot = df_merged_clean_SB2.pivot_table(index=['provider_name','drg_definition'],values=['average_total_payments'],aggfunc='mean')
 st.dataframe(dataframe_pivot)
 
 st.markdown('SBU Hospital Inpatient Q: What are the most expesive drugs comparing Stony Brook average total payments for DRG?')
-st.markdown(' Answer: 1. ECMO or TRACH - $216636.88, 2. Trach W MV - $132951.87, 3. Cranio W Major Dev - $69981.35.')
+st.markdown('SBU Answer: 1. ECMO or TRACH - $216636.88, 2. Trach W MV - $132951.87, 3. Cranio W Major Dev - $69981.35.')
 st.markdown('All three have the most expesnive total average payments for drg_definition with df_Hospital and df_Inpatient')
            
 
