@@ -181,4 +181,5 @@ st.header('Comparison of CEMC and SBU Hospitals')
 final_df_comparison = pd.concat([df_merged_clean_CEMC, df_merged_clean_SB])
 st.dataframe(final_df_comparison)
 
+final_df_comparison.pivot(index=['hospital_name'], columns='apc', values='average_total_payments')
 
