@@ -40,13 +40,14 @@ def load_Outpatient():
     return df_outpatient
   
 st.header('Hospital Data Set')
-st.markdown('The first dataset included in this assignment will be the hopsital data frame')
+st.markdown('The first dataset included in this assignment will be the hospital data frame')
+st.markdown('Hospital Q: What are the most common hospital type? For New York how many Acute care Hospitals are ranked number 1?')
 st.dataframe(df_Hospital)
 
 st.subheader('Hospital Type Breakdown')
 bar1 = df_Hospital['hospital_type'].value_counts().reset_index()
 st.dataframe(bar1)
-st.markdown('As we can see here the above chart is showing the brekdwon of hospital types inlcuded within this dataset into Acute Care, Critical Access Care, AC Department of defense, Childrens, and Psychiatric.') 
+st.markdown('As we can see here the above chart is showing the breakdown of hospital types inlcuded within this dataset into Acute Care, Critical Access Care, AC Department of defense, Childrens, and Psychiatric.') 
 
 st.subheader('Pie Chart of Hospital Type')
 fig = px.pie(bar1, values='hospital_type', names='index')
@@ -88,6 +89,8 @@ st.markdown('Hospital Q: What are the most common hospital type in NY & what is 
 st.markdown('Hospital A: The most common Hopsital type in NY is acute care hospitals with 144 acute care hospitals and the total number of 46 acute care hopsitals in NY have a 1 rating.')
 
 st.header('Outpatient Data')
+st.markdown('The 2nd data set to be utilized is the Outpatient data set')
+st.markdown('Oupatient Q: How many outpatient facilities are there within each state and how do they compare?')
 st.dataframe(df_Outpatient)
 
 st.subheader('Number of Facilities by state')
@@ -131,6 +134,8 @@ fig3 = px.bar(bar3, x='index', y='provider_name')
 st.plotly_chart(fig3)
 
 st.header('Inpatient Data')
+st.markdown('The following is the Inpatient data set to be utilized.')
+st.markdown('Inpatient Question: What are the most expensive drg_definitions for each NY state and top 3 average total payments overall?')
 st.dataframe(df_Inpatient)
 
 st.subheader('Inpatient Facility')
@@ -143,8 +148,6 @@ st.plotly_chart(fig)
 
 st.header('Breakdown of each state with each drg definition with total payments average')
 costs_condition_hospital = df_Inpatient.groupby(['provider_state', 'drg_definition'])['average_total_payments'].sum().reset_index()
-
-st.header("Costs by Condition and Hospital - Average Total Payments")
 st.dataframe(costs_condition_hospital)
 
 st.header('The total average payments for provider State, drg definitions, and each total average payment')
