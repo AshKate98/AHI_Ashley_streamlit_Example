@@ -189,3 +189,8 @@ st.subheader('Final Comparison Pivot Table')
 dataframe_pivot = final_df_comparison.pivot_table(index=['hospital_name','apc'],values=['average_total_payments'],aggfunc='mean')
 st.dataframe(dataframe_pivot)
 
+bar2 = final_df_comparison['hospital_name'].value_counts().reset_index()
+st.subheader('Bar chart displaying SBU and CEMC differences between average total payments')
+fig3 = px.bar(bar2, x='average_total_payments', y='hospital_name')
+st.plotly_chart(fig3)
+st.dataframe(bar2)
