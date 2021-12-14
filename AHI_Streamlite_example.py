@@ -207,6 +207,6 @@ df_merged_clean_SB2 = df_merged_clean2[df_merged_clean2['provider_id'] == '33039
 df_merged_clean_SB2
 
 st.subheader('Pivot DRG for SBU Hospital')
-dataframe_pivot = df_merged_clean_SB.pivot_table(index=['provider_name','drg_definition'],values=['average_total_payments'],aggfunc='mean')
+dataframe_pivot = df_merged_clean_SB2.pivot_table(index=['provider_name','drg_definition'],values=['average_total_payments'],aggfunc='mean')
 st.dataframe(dataframe_pivot)
 
