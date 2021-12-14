@@ -198,3 +198,15 @@ st.dataframe(bar2)
 st.subheader('Pivot APC for SBU Hospital')
 dataframe_pivot = df_merged_clean_SB.pivot_table(index=['provider_id','apc'],values=['average_total_payments'],aggfunc='mean')
 st.dataframe(dataframe_pivot)
+
+df_Hospital['provider_id'] = df_Hospital['provider_id'].astype(str)
+df_Inpatient['provider_id'] = df_Inpatient['provider_id'].astype(str)
+df_merged2 = df_Inpatient.merge(df_Hospital, how='left', left_on='provider_id', right_on='provider_id')
+df_merged_clean2 = df_merged2[df_merged2['hospital_name'].notna()]
+df_merged_clean_SB2 = df_merged_clean2[df_merged_clean2['provider_id'] == '330393']
+df_merged_clean_SB2
+
+st.subheader('Pivot DRG for SBU Hospital')
+dataframe_pivot = df_merged_clean_SB.pivot_table(index=['provider_name','drg_definition'],values=['average_total_payments'],aggfunc='mean')
+st.dataframe(dataframe_pivot)
+
