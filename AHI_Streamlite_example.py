@@ -23,8 +23,8 @@ def load_Inpatient():
 
 @st.cache
 def load_Outpatient():
-    df_Outpatient = pd.read_csv('https://raw.githubusercontent.com/hantswilliams/AHI_STATS_507/main/Week13_Summary/output/df_outpatient_2.csv')
-    return df_outpatient_2
+    df_Outpatient = pd.read_csv('https://raw.githubusercontent.com/hantswilliams/AHI_STATS_507/main/Week13_Summary/output/df_outpatient.csv')
+    return df_outpatient
   
 st.header('Hospital Data')
 st.dataframe(df_Hospital)
