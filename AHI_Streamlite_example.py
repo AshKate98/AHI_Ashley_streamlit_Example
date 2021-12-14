@@ -125,3 +125,10 @@ st.plotly_chart(fig)
 common_discharges = df_Inpatient.groupby('provider_state')['total_discharges'].sum().reset_index()
 top10 = common_discharges.head(10)
 bottom10 = common_discharges.tail(10)
+
+st.title('COSTS')
+
+bar3 = px.bar(costs_sum, x='provider_state', y='total_discharges')
+st.plotly_chart(bar3)
+st.header("Hospital - ")
+st.dataframe(costs_sum)
