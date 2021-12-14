@@ -185,3 +185,7 @@ st.subheader('Final Comparison Pivot Table')
 dataframe_pivot = final_df_comparison.pivot_table(index=['hospital_name','apc'],values=['average_total_payments'],aggfunc='count')
 st.dataframe(dataframe_pivot)
 
+st.subheader('Final Comparison Pivot Table')
+dataframe_pivot = final_df_comparison.pivot_table(index=['hospital_name','apc'],values=['average_total_payments'],aggfunc='mean')
+st.dataframe(dataframe_pivot)
+
