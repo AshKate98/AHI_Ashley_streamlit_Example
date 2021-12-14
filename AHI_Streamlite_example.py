@@ -95,7 +95,7 @@ st.title('OUTPATIENT Dataframe')
 
 st.subheader('Outpatient providers in the state of North Carolina')
 
-outpatient_nc = df_Outpatient[df_Outpatient['provider_state'] == 'NC']
+Outpatient_nc = df_Outpatient[df_Outpatient['provider_state'] == 'NC']
 
 bar3 = Outpatient_nc['provider_name'].value_counts().reset_index()
 st.dataframe(bar3)
