@@ -14,10 +14,10 @@ st.write('AshKate98 Dashboard!')
 st.write('Questions pertainting to Hopsital, Outpatient, and Inpatient Data:')
 st.write('1. Hospital Q: What are the most common hospital type? For New York how many Acute care Hospitals are ranked number 1?')
 st.write('2. Oupatient Q: How many outpatient facilities are there within each state and how do they compare?')
-st.write('3. Inpatient Question: What are the most expensive drg_definitions for each NY state and top 3 average total payments overall?')
-st.write('4. Stony Brook Question comparison to North carolina?')
-st.write('5. Top Stony Brook APC?')
-st.write('6. Top Stony Brook DRG?')
+st.write('3. Inpatient Q: What are the most expensive drg_definitions for each NY state and top 3 average total payments overall?')
+st.write('4. Stony Brook Q: comparison to North carolina?')
+st.write('5. Stony Brook Q: Top Stony Brook APC?')
+st.write('6. Stony Brook Q: Top Stony Brook DRG?')
 
 df_Hospital = pd.read_csv('https://raw.githubusercontent.com/hantswilliams/AHI_DataSci_507/main/Deployment_Streamlit/hospital_info.csv')
 
@@ -44,11 +44,10 @@ st.header('Hospital Data Set')
 st.markdown('The first dataset included in this assignment will be the hopsital data frame')
 st.dataframe(df_Hospital)
 
-
 st.subheader('Hospital Type')
 bar1 = df_Hospital['hospital_type'].value_counts().reset_index()
 st.dataframe(bar1)
-st.markdown('As we can see here the above chart is showing the brekdwon of hopsital types inlcuded within this dataset into Acute Care, Critical Access Care, AC Act of defense, Childrens, and Psychiatric.') 
+st.markdown('As we can see here the above chart is showing the brekdwon of hospital types inlcuded within this dataset into Acute Care, Critical Access Care, AC Act of defense, Childrens, and Psychiatric.') 
 
 st.subheader('Pie Chart of Hospital Type')
 fig = px.pie(bar1, values='hospital_type', names='index')
