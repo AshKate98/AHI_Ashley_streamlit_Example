@@ -157,6 +157,8 @@ df_Outpatient['provider_id'] = df_Outpatient['provider_id'].astype(str)
 
 df_merged = df_Outpatient.merge(df_Hospital, how='left', left_on='provider_id', right_on='provider_id')
 
+st.header('Merged Dataframes Preview')
+st.dataframe(df_merged)
 
 
 
