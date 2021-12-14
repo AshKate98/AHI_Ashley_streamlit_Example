@@ -66,6 +66,10 @@ Outpatient_NY = df_Outpatient[df_Outpatient['provider_state'] == 'NY']
 bar2 = Outpatient_NY['provider_name'].value_counts().reset_index()
 st.dataframe(bar2)
 
+st.subheader('Bar chart displaying different outpatient providers in NY:')
+fig3 = px.bar(bar2, x='index', y='provider_name')
+st.plotly_chart(fig3
+
 st.header('Inpatient Data')
 st.dataframe(df_Inpatient)
 
