@@ -11,7 +11,7 @@ import plotly.express as px
 
 st.title('Streamlit Final Assignment')
 st.write('AshKate98 Dashboard!') 
-st.write('Questions pertainting to Hopsital, Outpatient, and Inpatient Data:')
+st.write('Questions pertaining to Hospital, Outpatient, and Inpatient Data:')
 st.write('1. Hospital Q: What are the most common hospital type? For New York how many Acute care Hospitals are ranked number 1?')
 st.write('2. Oupatient Q: How many outpatient facilities are there within each state and how do they compare?')
 st.write('3. Inpatient Q: What are the most expensive drg_definitions for each NY state and top 3 average total payments overall?')
@@ -82,7 +82,7 @@ State_acute_1 = df_Hospital[df_Hospital['state'] == 'NY']
 bar2 = State_acute_1['hospital_overall_rating'].value_counts().reset_index()
 st.dataframe(bar2)
 
-st.subheader('Bar chart displaying Acute Care Hopitals within NY with 1 rating:')
+st.subheader('Bar chart displaying Acute Care Hospitals within NY with 1 rating:')
 fig3 = px.bar(bar2, x='index', y='hospital_overall_rating')
 st.plotly_chart(fig3)
 st.markdown('Hospital Q: What are the most common hospital type in NY & what is the breakdown of acute care hospitals in NY tjat are 1 overall?')
@@ -199,6 +199,7 @@ st.subheader('Pivot APC for SBU Hospital')
 dataframe_pivot = df_merged_clean_SB.pivot_table(index=['provider_id','apc'],values=['average_total_payments'],aggfunc='mean')
 st.dataframe(dataframe_pivot)
 
+st.header('Merging of Hospital and Inpatient data sets')
 df_Hospital['provider_id'] = df_Hospital['provider_id'].astype(str)
 df_Inpatient['provider_id'] = df_Inpatient['provider_id'].astype(str)
 df_merged2 = df_Inpatient.merge(df_Hospital, how='left', left_on='provider_id', right_on='provider_id')
@@ -206,7 +207,9 @@ df_merged_clean2 = df_merged2[df_merged2['hospital_name'].notna()]
 df_merged_clean_SB2 = df_merged_clean2[df_merged_clean2['provider_id'] == '330393']
 df_merged_clean_SB2
 
+st.header('Piovt table for average cost of each DRG for SBU Hospital')
 st.subheader('Pivot DRG for SBU Hospital')
 dataframe_pivot = df_merged_clean_SB2.pivot_table(index=['provider_name','drg_definition'],values=['average_total_payments'],aggfunc='mean')
 st.dataframe(dataframe_pivot)
+
 
