@@ -59,7 +59,7 @@ st.dataframe(bar1)
 st.markdown('The majority of hospitals in NY are acute care, followed by psychiatric which for all states overall is different since we see critical care has the wnd most total number of hospitals')
 
 st.subheader('With a PIE Chart:')
-fig = px.pie(bar1, values='hospitals_ny', names='index')
+fig = px.pie(bar1, values='hospital_type', names='index')
 st.plotly_chart(fig)
 
 
