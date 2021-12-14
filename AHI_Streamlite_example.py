@@ -196,7 +196,7 @@ st.plotly_chart(fig3)
 st.dataframe(bar2)
 
 st.subheader('PIE Chart:')
-fig = px.pie(bar1, values='hospital_name', names='index')
+fig = px.pie(bar1, values='provider_state', names='index')
 st.plotly_chart(fig)
 
 st.subheader('Pivot APC for SBU Hospital')
