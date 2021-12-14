@@ -34,11 +34,14 @@ def load_Outpatient():
     return df_outpatient
   
 st.header('Hospital Data Set')
+st.markdown('The first dataset included in this assignment will be the hopsital data frame')
 st.dataframe(df_Hospital)
+
 
 st.subheader('Hospital Type')
 bar1 = df_Hospital['hospital_type'].value_counts().reset_index()
 st.dataframe(bar1)
+st.markdown('As we can see here the above chart is showing the brekdwon of hopsital types inlcuded within this dataset into Acute Care, Critical Access Care, AC Act of defense, Childrens, and Psychiatric.') 
 
 st.subheader('Pie Chart of Hospital Type')
 fig = px.pie(bar1, values='hospital_type', names='index')
@@ -57,7 +60,7 @@ bar1 = hospitals_ny['hospital_type'].value_counts().reset_index()
 st.dataframe(bar1)
 
 st.markdown('The majority of hospitals in NY are acute care, followed by psychiatric which for all states overall is different since we see critical care has the 2nd most total number of hospitals')
-
+st.markdown('The Pie chart below shows te breakdown in NY of Hopsital types shpwing 74.5% of hopsitals are Acute Care based in this dataset the state of NY.')
 st.header('NY Hospital type Breakdown')
 st.subheader('PIE Chart:')
 fig = px.pie(bar1, values='hospital_type', names='index')
