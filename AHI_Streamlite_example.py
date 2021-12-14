@@ -113,4 +113,12 @@ st.plotly_chart(fig3)
 
 st.header('Inpatient Data')
 st.dataframe(df_Inpatient)
+
+st.subheader('Inpatient Facility')
+bar1 = df_Inpatient['provider_state'].value_counts().reset_index()
+st.dataframe(bar1)
+
+st.subheader('Pie Chart of Hospital Type')
+fig = px.pie(bar1, values='provider_state', names='index')
+st.plotly_chart(fig)
           
