@@ -74,7 +74,7 @@ st.dataframe(bar2)
 
 st.subheader('Bar chart displaying Acute Care Hopitals within NY with 1 rating:')
 fig3 = px.bar(bar2, x='hospital_overall_rating', y='index')
-st.plotly_chart(fig3)hospital_overall_rating
+st.plotly_chart(fig3)
 
 st.header('Outpatient Data')
 st.dataframe(df_Outpatient)
