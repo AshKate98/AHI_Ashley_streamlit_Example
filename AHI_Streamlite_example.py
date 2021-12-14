@@ -70,6 +70,10 @@ st.dataframe(dataframe_pivot)
 st.header('Outpatient Data')
 st.dataframe(df_Outpatient)
 
+st.subheader('Number of Hopsitals by state')
+bar1 = df_Outpatient['provider_state'].value_counts().reset_index()
+st.dataframe(bar1)
+
 st.title('OUTPATIENT Dataframe')
 
 st.subheader('Map of NY Hospital Locations')
