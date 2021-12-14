@@ -166,6 +166,8 @@ st.header('Stony Brook University Hospital dataset')
 df_merged_clean_SB = df_merged_clean[df_merged_clean['hospital_name'] == 'SUNY/STONY BROOK UNIVERSITY HOSPITAL']
 df_merged_clean_SB
 
-
+st.header('Carolina East Medical Center')
+df_merged_clean_CEMC = df_merged_clean[df_merged_clean['hospital_name'] == 'CAROLINA EAST MEDICAL CENTER']
+df_merged_clean_CEMC
 
 
