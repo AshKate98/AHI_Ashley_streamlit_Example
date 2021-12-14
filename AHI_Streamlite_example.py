@@ -70,11 +70,14 @@ st.dataframe(dataframe_pivot)
 st.header('Outpatient Data')
 st.dataframe(df_Outpatient)
 
-st.subheader('Number of Hopsitals by state')
+st.subheader('Number of Facilities by state')
 bar1 = df_Outpatient['provider_state'].value_counts().reset_index()
 st.dataframe(bar1)
 
-st.title('OUTPATIENT Dataframe')
+st.subheader('Pie Chart of facilities by state')
+fig = px.pie(bar1, values='provider_state', names='index')
+st.plotly_chart(fig)
+
 
 st.subheader('Map of NY Hospital Locations')
 
