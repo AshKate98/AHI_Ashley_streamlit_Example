@@ -14,7 +14,9 @@ st.write('Hello Everybody!')
 
 df_Hospital = pd.read_csv('https://raw.githubusercontent.com/hantswilliams/AHI_DataSci_507/main/Deployment_Streamlit/hospital_info.csv')
 
-
+st.subheader('Hospital Type')
+bar1 = hospitals_ny['hospital_type'].value_counts().reset_index()
+st.dataframe(bar1)
 
 df_Outpatient = Outpatient_2015 = pd.read_csv('https://raw.githubusercontent.com/hantswilliams/AHI_DataSci_507/main/Deployment_Streamlit/outpatient_2015.csv')
 
