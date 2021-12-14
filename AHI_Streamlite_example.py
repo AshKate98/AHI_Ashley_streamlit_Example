@@ -70,10 +70,6 @@ st.dataframe(dataframe_pivot)
 st.header('Outpatient Data')
 st.dataframe(df_Outpatient)
 
-st.subheader('Outpatient Pivot Table')
-dataframe_pivot = df_Outpatient.pivot_table(index=['Number of Hospitals','provider_state'],values=['Number of Hospitals'],aggfunc='count'
-st.dataframe(dataframe_pivot)
-
 st.title('OUTPATIENT Dataframe')
 
 st.subheader('Map of NY Hospital Locations')
