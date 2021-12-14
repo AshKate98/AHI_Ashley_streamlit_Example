@@ -47,7 +47,7 @@ st.dataframe(df_Hospital)
 st.subheader('Hospital Type Breakdown')
 bar1 = df_Hospital['hospital_type'].value_counts().reset_index()
 st.dataframe(bar1)
-st.markdown('As we can see here the above chart is showing the brekdwon of hospital types inlcuded within this dataset into Acute Care, Critical Access Care, AC Act of defense, Childrens, and Psychiatric.') 
+st.markdown('As we can see here the above chart is showing the brekdwon of hospital types inlcuded within this dataset into Acute Care, Critical Access Care, AC Department of defense, Childrens, and Psychiatric.') 
 
 st.subheader('Pie Chart of Hospital Type')
 fig = px.pie(bar1, values='hospital_type', names='index')
@@ -181,5 +181,7 @@ st.header('Comparison of CEMC and SBU Hospitals')
 final_df_comparison = pd.concat([df_merged_clean_CEMC, df_merged_clean_SB])
 st.dataframe(final_df_comparison)
 
-final_df_comparison.pivot(index=['hospital_name'], columns='apc', values='average_total_payments')
+st.subheader('Final Comparison Pivot Table')
+dataframe_pivot = final_df_comparison.pivot_table(index=['hospital_name','apc'],values=['average_total_payments'],aggfunc='count')
+st.dataframe(dataframe_pivot)
 
