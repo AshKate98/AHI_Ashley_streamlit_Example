@@ -191,6 +191,6 @@ st.dataframe(dataframe_pivot)
 
 bar2 = final_df_comparison['hospital_name'].value_counts().reset_index()
 st.subheader('Bar chart displaying SBU and CEMC differences between average total payments')
-fig3 = px.bar(bar2, x='hospital_name', y='index')
+fig3 = px.bar(bar2, x='index', y='hospital_name')
 st.plotly_chart(fig3)
 st.dataframe(bar2)
