@@ -84,13 +84,15 @@ st.subheader('Bar chart displaying different outpatient providers in NY:')
 fig3 = px.bar(bar2, x='index', y='provider_name')
 st.plotly_chart(fig3)
 
-st.subheader('Providers by state')
-df_Outpatient = df_Outpatient[df_Outpatient['provider_state']
-bar3 = df_Outpatient['provider_state'].value_counts().reset_index()
+hospitals_NC = df_Hospital[df_Hospital['state'] == 'NC']
+
+st.subheader('Providers in the state of NC')
+df_Outpatient_NC = df_Outpatient_NC[df_Outpatient['provider_state'] == 'NC']
+bar3 = df_Outpatient_NC['provider_state'].value_counts().reset_index()
 st.dataframe(bar3)
 
-st.subheader('Bar Chart Providers by states')
-fig3 = px.bar(bar3, x='index', y='provider_state')
+st.subheader('Bar Chart different outpatient providers in NC')
+fig3 = px.bar(bar3, x='index', y='provider_name')
 st.plotly_chart(fig3)
 
 st.header('Inpatient Data')
