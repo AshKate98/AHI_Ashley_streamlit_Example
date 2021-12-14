@@ -10,7 +10,6 @@ import numpy as np
 import plotly.express as px
 
 st.title('Streamlit Final Assignment')
-st.write('AshKate98 Dashboard!') 
 st.write('Questions pertaining to Hospital, Outpatient, and Inpatient Data:')
 st.write('1. Hospital Q: What are the most common hospital type? For New York how many Acute care Hospitals are ranked number 1?')
 st.write('2. Oupatient Q: How many outpatient facilities are there within each state and how do they compare?')
