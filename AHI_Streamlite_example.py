@@ -134,9 +134,7 @@ st.dataframe(costs_condition_hospital)
 
 st.header('The total average payments for provider id, drg definitions, and each total average payment')
 st.dataframe(costs_condition_hospital)
-st.subheader('Pie Chart of average_total_payments by state')
-fig = px.pie(bar1, values='provider_state', names='average_total_payments')
-st.plotly_chart(fig)
+
 
 
 
