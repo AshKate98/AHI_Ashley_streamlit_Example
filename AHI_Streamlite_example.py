@@ -68,7 +68,5 @@ st.dataframe(bar2)
 
 st.subheader('Bar chart displaying different outpatient providers in NY:')
 fig3 = px.bar(bar2, x='index', y='provider_name')
-st.plotly_chart(fig3
-
-st.dataframe(df_Inpatient)
+st.plotly_chart(fig3)
 
