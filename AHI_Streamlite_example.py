@@ -40,6 +40,10 @@ st.subheader('Hospital Type')
 bar1 = df_Hospital['hospital_type'].value_counts().reset_index()
 st.dataframe(bar1)
 
+st.subheader('With a PIE Chart:')
+fig = px.pie(bar1, values='hospital_type', names='index')
+st.plotly_chart(fig)
+
 st.header('Outpatient Data')
 st.dataframe(df_Outpatient)
 
