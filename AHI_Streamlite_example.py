@@ -51,7 +51,7 @@ st.markdown('1. Acute 3256')
 st.markdown('2. Critical 1355')
 st.markdown('3. Pyschiatric 573')
 
-hospitals_ny = df_Hospital_2[df_Hospital['state'] == 'NY']
+hospitals_ny = df_Hospital[df_Hospital['state'] == 'NY']
 st.subheader('Hospital Type - NY')
 bar1 = hospitals_ny['hospital_type'].value_counts().reset_index()
 st.dataframe(bar1)
