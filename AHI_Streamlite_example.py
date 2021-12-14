@@ -63,9 +63,6 @@ st.subheader('With a PIE Chart:')
 fig = px.pie(bar1, values='hospital_type', names='index')
 st.plotly_chart(fig)
 
-
-st.markdown('Pivot Table')
-
 st.subheader('Hospital data Pivot Table')
 dataframe_pivot = df_Hospital.pivot_table(index=['hospital_ownership','hospital_type'],values=['hospital_overall_rating'],aggfunc='count')
 st.dataframe(dataframe_pivot)
@@ -74,6 +71,7 @@ st.header('Outpatient Data')
 st.dataframe(df_Outpatient)
 
 st.title('OUTPATIENT Dataframe')
+
 st.subheader('Map of NY Hospital Locations')
 
 hospitals_ny_gps = hospitals_ny['location'].str.strip('()').str.split(' ', expand=True).rename(columns={0: 'Point', 1:'lon', 2:'lat'})  
@@ -92,6 +90,15 @@ st.dataframe(bar2)
 st.subheader('Bar chart displaying different outpatient providers in NY:')
 fig3 = px.bar(bar2, x='index', y='provider_name')
 st.plotly_chart(fig3)
+
+st.title('OUTPATIENT Dataframe')
+
+st.subheader('Outpatient providers in the state of North Carolina')
+
+outpatient_nc = df_Outpatient[df_Outpatient['provider_state'] == 'NC']
+
+bar3 = Outpatient_nc['provider_name'].value_counts().reset_index()
+st.dataframe(bar3)
 
 st.header('Inpatient Data')
 st.dataframe(df_Inpatient)
