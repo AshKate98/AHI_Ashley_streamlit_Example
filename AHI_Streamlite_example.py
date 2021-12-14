@@ -128,7 +128,7 @@ bottom10 = common_discharges.tail(10)
 
 st.title('COSTS')
 
-bar3 = px.bar(costs_sum, x='provider_state', y='total_discharges')
+bar3 = px.bar(costs_sum, x='drg_definition', y='total_average_payments'
 st.plotly_chart(bar3)
 st.header("Hospital - ")
 st.dataframe(costs_sum)
