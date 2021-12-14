@@ -157,12 +157,12 @@ df_Outpatient['provider_id'] = df_Outpatient['provider_id'].astype(str)
 
 df_merged = df_Outpatient.merge(df_Hospital, how='left', left_on='provider_id', right_on='provider_id')
 
-st.header('Merged Dataframes Preview')
 st.dataframe(df_merged)
 st.markdown('Cleaning of df_merge')
 df_merged_clean = df_merged[df_merged['hospital_name'].notna()]
 st.dataframe(df_merged_clean)
 
+st.header('Stony Brook University Hospital dataset')
 df_merged_clean_SB = df_merged_clean[df_merged_clean['hospital_name'] == 'SUNY/STONY BROOK UNIVERSITY HOSPITAL']
 df_merged_clean_SB
 
