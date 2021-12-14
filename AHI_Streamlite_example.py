@@ -126,7 +126,7 @@ costs_condition_hospital = df_Inpatient.groupby(['provider_state', 'drg_definiti
 st.header("Costs by Condition and Hospital - Average Total Payments")
 st.dataframe(costs_condition_hospital)
 
-costs_condition_hospital = df_Inpatient.groupby(['average_total_payments', 'drg_definition'])['average_total_payments'].sum().reset_index()
+costs_condition_hospital = df_Inpatient.groupby(['provider_id', 'drg_definition'])['average_total_payments'].sum().reset_index()
 st.header("Costs by Condition and Hospital - Average Total Payments")
 st.dataframe(costs_condition_hospital)
 
