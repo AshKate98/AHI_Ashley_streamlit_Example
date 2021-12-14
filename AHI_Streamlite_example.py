@@ -23,10 +23,6 @@ def load_hospitals():
     df_Hospital = pd.read_csv('https://raw.githubusercontent.com/hantswilliams/AHI_STATS_507/main/Week13_Summary/output/df_hospital.csv')
     return df_Hospital
 
-st.subheader('Hospital Type')
-bar1 = df_Hospital['hospital_type'].value_counts().reset_index()
-st.dataframe(bar1)
-
 @st.cache
 def load_Inpatient():
     df_Inpatient = pd.read_csv('https://raw.githubusercontent.com/hantswilliams/AHI_STATS_507/main/Week13_Summary/output/df_inpatient.csv')
@@ -39,6 +35,10 @@ def load_Outpatient():
   
 st.header('Hospital Data')
 st.dataframe(df_Hospital)
+
+st.subheader('Hospital Type')
+bar1 = df_Hospital['hospital_type'].value_counts().reset_index()
+st.dataframe(bar1)
 
 st.header('Outpatient Data')
 st.dataframe(df_Outpatient)
