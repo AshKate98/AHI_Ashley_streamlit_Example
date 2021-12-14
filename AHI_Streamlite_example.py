@@ -13,6 +13,11 @@ st.title('Streamlit Final Assingment')
 
 df_Hospital = pd.read_csv('https://raw.githubusercontent.com/hantswilliams/AHI_DataSci_507/main/Deployment_Streamlit/hospital_info.csv')
 
+bar1 = px.bar(Number of Hospitals, x='states', y='hospital_type')
+st.plotly_chart(bar1)
+st.header("Hospital - ")
+st.dataframe(Number of Hospitals)
+
 df_Outpatient = Outpatient_2015 = pd.read_csv('https://raw.githubusercontent.com/hantswilliams/AHI_DataSci_507/main/Deployment_Streamlit/outpatient_2015.csv')
 
 df_Inpatient = Inpatient_2015 = pd.read_csv('https://raw.githubusercontent.com/hantswilliams/AHI_DataSci_507/main/Deployment_Streamlit/inpatient_2015.csv')
