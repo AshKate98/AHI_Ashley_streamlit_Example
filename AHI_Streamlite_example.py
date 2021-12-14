@@ -51,6 +51,10 @@ st.markdown('1. Acute 3256')
 st.markdown('2. Critical 1355')
 st.markdown('3. Pyschiatric 573')
 
+State_acute_1=df_Hospital.loc[(df_Hospital["hospital_type"]=="Acute Care Hospitals") & (df_Hospital["hospital_overall_rating"]=="1"),["state"]]
+State_acute_1.head()
+
+
 st.header('Outpatient Data')
 st.dataframe(df_Outpatient)
 
