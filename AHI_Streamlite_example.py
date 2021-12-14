@@ -40,9 +40,16 @@ st.subheader('Hospital Type')
 bar1 = df_Hospital['hospital_type'].value_counts().reset_index()
 st.dataframe(bar1)
 
-st.subheader('With a PIE Chart:')
+st.subheader('Pie Chart of Hospital Type')
 fig = px.pie(bar1, values='hospital_type', names='index')
 st.plotly_chart(fig)
+
+st.markdown('Variable explored- Hospital type for the total number of hospitals')
+st.markdown('below is a Hospital_type_def created with the Hospital_df once cleaned displaying the type of hospitals labeled as Acute, critical care, children care, department of defense, and pyschiatric hospitals.')
+st.markdown('As we can answer the following question that Acute care hospitals are the most frequent hospitals, while leading into the next question!')
+st.markdown('1. Acute 3256')
+st.markdown('2. Critical 1355')
+st.markdown('3. Pyschiatric 573')
 
 st.header('Outpatient Data')
 st.dataframe(df_Outpatient)
