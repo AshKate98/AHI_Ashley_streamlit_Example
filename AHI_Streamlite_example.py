@@ -14,7 +14,7 @@ st.title('Streamlit Final Assingment')
 df_Hospital = pd.read_csv('https://raw.githubusercontent.com/hantswilliams/AHI_DataSci_507/main/Deployment_Streamlit/hospital_info.csv')
 st.subheader('Hospital Data Pivot Table')
 
-dataframe_pivot = df_Hospital.pivot_table(index=['state','hospital_type'],values=['Number of Hospitals'],aggfunc='mean')
+dataframe_pivot = df_Hospital.pivot_table(index=['state','hospital_type'],values=['hospital_types'],aggfunc='mean')
 st.dataframe(dataframe_pivot)
 
 df_Outpatient = Outpatient_2015 = pd.read_csv('https://raw.githubusercontent.com/hantswilliams/AHI_DataSci_507/main/Deployment_Streamlit/outpatient_2015.csv')
