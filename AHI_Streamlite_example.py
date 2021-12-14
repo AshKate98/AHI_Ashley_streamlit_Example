@@ -159,8 +159,9 @@ df_merged = df_Outpatient.merge(df_Hospital, how='left', left_on='provider_id', 
 
 st.header('Merged Dataframes Preview')
 st.dataframe(df_merged)
-
-
+st.markdown('Cleaning of df_merge')
+df_merged_clean = df_merged[df_merged['hospital_name'].notna()]
+st.dataframe(df_merged_clean)
 
 
 
