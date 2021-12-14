@@ -150,6 +150,7 @@ st.dataframe(costs_condition_hospital)
 
 st.header('Breakdown of each state with each drg definition with total payments average')
 costs_condition_hospital = df_Inpatient.groupby(['provider_id', 'drg_definition'])['average_total_payments'].sum().reset_index()
+st.datafrme(costs_condition_hospital)
 
 
 
