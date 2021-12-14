@@ -89,6 +89,9 @@ st.subheader('Pie Chart of facilities by state')
 fig = px.pie(bar1, values='provider_state', names='index')
 st.plotly_chart(fig)
 
+st.markdown('Outpatient Q: What states have the most outpatient facilities?')
+st.markdown('A: From the above chart we can see that Texas has the most outpatient facilities with 2205, California 2nd with 2,113, and Pennsylvania 3rd with 1,667')
+st.markdown('Lets see a comparison between NY and NC')
 
 st.subheader('Map of NY Hospital Locations')
 
@@ -109,7 +112,11 @@ st.subheader('Bar chart displaying different outpatient providers in NY:')
 fig3 = px.bar(bar2, x='index', y='provider_name')
 st.plotly_chart(fig3)
 
-st.title('OUTPATIENT Dataframe')
+Outpatient_nc_gps = Outpatient_nc['location'].str.strip('()').str.split(' ', expand=True).rename(columns={0: 'Point', 1:'lon', 2:'lat'})  
+Outpatient_ny_gps['lon'] = Outpatient_nc_gps['lon'].str.strip('(')
+Outpatient_nc_gps = Outpatient_nc_gps.dropna()
+Outpatient_nc_gps['lon'] = pd.to_numeric(Outpatient_nc_gps['lon'])
+Outpatient_nc_gps['lat'] = pd.to_numeric(Outpatient_nc_gps['lat'])
 
 st.subheader('Outpatient providers in the state of North Carolina')
 
