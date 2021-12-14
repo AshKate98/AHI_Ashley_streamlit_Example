@@ -86,11 +86,11 @@ st.plotly_chart(fig3)
 
 st.subheader('Providers by states')
 df_Outpatient = df_Outpatient[df_Outpatient['provider_state']
-bar2 = df_Outpatient['provider_state'].value_counts().reset_index()
-st.dataframe(bar2)
+bar3 = df_Outpatient['provider_state'].value_counts().reset_index()
+st.dataframe(bar3)
 
 st.subheader('Bar Chart Providers by states')
-fig3 = px.bar(bar2, x='index', y='provider_state')
+fig3 = px.bar(bar3, x='index', y='provider_state')
 st.plotly_chart(fig3)
 
 st.header('Inpatient Data')
