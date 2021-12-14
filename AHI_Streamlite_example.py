@@ -44,7 +44,7 @@ st.header('Hospital Data Set')
 st.markdown('The first dataset included in this assignment will be the hopsital data frame')
 st.dataframe(df_Hospital)
 
-st.subheader('Hospital Type')
+st.subheader('Hospital Type Breakdown')
 bar1 = df_Hospital['hospital_type'].value_counts().reset_index()
 st.dataframe(bar1)
 st.markdown('As we can see here the above chart is showing the brekdwon of hospital types inlcuded within this dataset into Acute Care, Critical Access Care, AC Act of defense, Childrens, and Psychiatric.') 
@@ -60,6 +60,7 @@ st.markdown('1. Acute 3256')
 st.markdown('2. Critical 1355')
 st.markdown('3. Pyschiatric 573')
 
+st.header('A breakdown of Hospital types by NY state')
 hospitals_ny = df_Hospital[df_Hospital['state'] == 'NY']
 st.subheader('Hospital Type - NY')
 bar1 = hospitals_ny['hospital_type'].value_counts().reset_index()
