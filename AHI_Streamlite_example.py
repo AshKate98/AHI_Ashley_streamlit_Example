@@ -125,7 +125,8 @@ st.plotly_chart(fig)
 costs_condition_hospital = df_Inpatient.groupby(['provider_state', 'drg_definition'])['average_total_payments'].sum().reset_index()
 st.header("Costs by Condition and Hospital - Average Total Payments")
 st.dataframe(costs_condition_hospital)
-
+top10 = common_discharges.head(10)
+bottom10 = common_discharges.tail(10)
 
 
 
