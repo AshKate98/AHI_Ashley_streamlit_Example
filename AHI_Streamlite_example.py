@@ -214,7 +214,7 @@ st.dataframe(dataframe_pivot)
 
 bar2 = df_merged_clean_SB2['provider_name'].value_counts().reset_index()
 st.subheader('Bar chart displaying average total payments for drg')
-fig3 = px.bar(bar2, x='index', y='provider_name')
+fig3 = px.bar(bar2, x='index', y='drg-definition')
 st.plotly_chart(fig3)
 st.dataframe(bar2)
 
