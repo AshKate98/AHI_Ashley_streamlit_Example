@@ -122,9 +122,10 @@ st.subheader('Pie Chart of Inpatient Facilities by state')
 fig = px.pie(bar1, values='provider_state', names='index')
 st.plotly_chart(fig)
 
-st.subheader('Inpatient Pivot Table')
-dataframe_pivot = df_Inpatient.pivot_table(index=['drg_definition','average_totl_payments'],values=['average_total_payments'],aggfunc='mean')
-st.dataframe(dataframe_pivot)
+costs_condition_hospital = df_Inpatient.groupby(['provider_name', 'drg_definition'])['average_total_payments'].sum().reset_index()
+st.header("Costs by Condition and Hospital - Average Total Payments")
+st.dataframe(costs_condition_hospital)
+
 
 
 
