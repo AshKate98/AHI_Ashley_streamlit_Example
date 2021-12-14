@@ -213,6 +213,6 @@ dataframe_pivot = df_merged_clean_SB2.pivot_table(index=['provider_name','drg_de
 st.dataframe(dataframe_pivot)
 
 st.subheader('Pie Chart of Hospital Type')
-fig = px.pie(bar1, values='drg_definition', names='index')
+fig = px.pie(bar1, values='average_total_payments', names='index')
 st.plotly_chart(fig)
 
