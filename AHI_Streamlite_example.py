@@ -118,7 +118,15 @@ st.subheader('Inpatient Facility')
 bar1 = df_Inpatient['provider_state'].value_counts().reset_index()
 st.dataframe(bar1)
 
-st.subheader('Pie Chart of Hospital Type')
+st.subheader('Pie Chart of Inpatient Facilities by state')
 fig = px.pie(bar1, values='provider_state', names='index')
 st.plotly_chart(fig)
-          
+
+st.subheader('Ttotal discharges per state for Inpatient')
+
+total_state = df_Inpatient[df_Inpatient[provider_state]
+bar4 = total_state['provider_name'].value_counts().reset_index()
+st.dataframe(bar4)
+st.subheader('Bar chart displaying different Inpatient discharges:')
+fig3 = px.bar(bar4, x='provider_state', y='total_discharges')
+st.plotly_chart(fig3)
