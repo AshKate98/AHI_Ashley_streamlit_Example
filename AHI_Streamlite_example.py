@@ -122,14 +122,17 @@ st.subheader('Pie Chart of Inpatient Facilities by state')
 fig = px.pie(bar1, values='provider_state', names='index')
 st.plotly_chart(fig)
 
+st.header('Breakdown of each state with each drg definition with total payments average')
 costs_condition_hospital = df_Inpatient.groupby(['provider_state', 'drg_definition'])['average_total_payments'].sum().reset_index()
 st.header("Costs by Condition and Hospital - Average Total Payments")
 st.dataframe(costs_condition_hospital)
 
+st.header('Breakdown of ech provider id with drg definiton and average total payments')
 costs_condition_hospital = df_Inpatient.groupby(['provider_id', 'drg_definition'])['average_total_payments'].sum().reset_index()
 st.header("Costs by Condition and Hospital - Average Total Payments")
 st.dataframe(costs_condition_hospital)
 
+st.header('The total average payments for provider id, drg definitions, and each total average payment')
 st.dataframe(costs_condition_hospital)
 
 
