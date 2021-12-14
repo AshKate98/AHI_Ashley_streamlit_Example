@@ -52,7 +52,7 @@ st.markdown('2. Critical 1355')
 st.markdown('3. Pyschiatric 573')
 
 st.subheader('Hospital data Pivot Table')
-dataframe_pivot = df_Hospital.pivot_table(index=['hospital_ownership','hospital_type'],values=['hospital_overall_rating'].aggfunc='count')
+dataframe_pivot = df_Hospital.pivot_table(index=['hospital_ownership','hospital_type'],values=['hospital_overall_rating'],aggfunc='count')
 st.dataframe(dataframe_pivot)
 
 st.header('Outpatient Data')
