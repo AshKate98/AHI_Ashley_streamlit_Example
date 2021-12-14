@@ -51,12 +51,20 @@ st.markdown('1. Acute 3256')
 st.markdown('2. Critical 1355')
 st.markdown('3. Pyschiatric 573')
 
+st.markdown('Pivot Table')
+
 st.subheader('Hospital data Pivot Table')
 dataframe_pivot = df_Hospital.pivot_table(index=['hospital_ownership','hospital_type'],values=['hospital_overall_rating'],aggfunc='count')
 st.dataframe(dataframe_pivot)
 
 st.header('Outpatient Data')
 st.dataframe(df_Outpatient)
+
+st.title('OUTPATIENT Dataframe')
+st.subheader('Outpatient providers in the state of NY')
+Outpatient_NY = df_Outpatient[df_Outpatient['provider_state'] == 'NY']
+bar2 = Outpatient_NY['provider_name'].value_counts().reset_index()
+st.dataframe(bar2)
 
 st.header('Inpatient Data')
 st.dataframe(df_Inpatient)
