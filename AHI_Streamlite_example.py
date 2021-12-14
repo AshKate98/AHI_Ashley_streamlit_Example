@@ -195,10 +195,6 @@ fig3 = px.bar(bar2, x='index', y='hospital_name')
 st.plotly_chart(fig3)
 st.dataframe(bar2)
 
-st.subheader('PIE Chart:')
-fig = px.pie(bar1, values='provider_state', names='index')
-st.plotly_chart(fig)
-
 st.subheader('Pivot APC for SBU Hospital')
 dataframe_pivot = df_merged_clean_SB.pivot_table(index=['provider_id','apc'],values=['average_total_payments'],aggfunc='mean')
 st.dataframe(dataframe_pivot)
