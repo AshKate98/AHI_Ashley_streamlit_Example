@@ -171,5 +171,6 @@ df_merged_clean_CEMC = df_merged_clean[df_merged_clean['hospital_name'] == 'CARO
 df_merged_clean_CEMC
 
 final_df_comparison = pd.concat([df_merged_clean_CEMC, df_merged_clean_SB])
+st.dataframe(final_df_comparison)
 
 
