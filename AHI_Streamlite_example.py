@@ -195,9 +195,13 @@ fig3 = px.bar(bar2, x='index', y='hospital_name')
 st.plotly_chart(fig3)
 st.dataframe(bar2)
 
+st.header('SBU Hospital Q: What are the most expensive apc for SBU Hopsital?')
 st.subheader('Pivot APC for SBU Hospital')
 dataframe_pivot = df_merged_clean_SB.pivot_table(index=['provider_id','apc'],values=['average_total_payments'],aggfunc='mean')
 st.dataframe(dataframe_pivot)
+st.markdown('SBU Hospital Q: What are the most expensive apc for SBU Hopsital?')
+st.markdown('Answer:The most expensive average total cost for APC in the outpatient and hospital dataframe with SBU hospital are the following')
+st.markdown('1. Level IV endoscopy 2307.21, 2. Level IV Nerver Injections 1325.64, 3. Level II Cardiac Imaging 1300.67')
 
 st.header('Merging of Hospital and Inpatient data sets')
 df_Hospital['provider_id'] = df_Hospital['provider_id'].astype(str)
@@ -207,11 +211,16 @@ df_merged_clean2 = df_merged2[df_merged2['hospital_name'].notna()]
 df_merged_clean_SB2 = df_merged_clean2[df_merged_clean2['provider_id'] == '330393']
 df_merged_clean_SB2
 
+st.header('SBU Hospital Inpatient Q: What are the most expesive drugs comparing Stony Brook average total payments for DRG?')
 st.header('Piovt table for average cost of each DRG for SBU Hospital')
 st.subheader('Pivot DRG for SBU Hospital')
 dataframe_pivot = df_merged_clean_SB2.pivot_table(index=['provider_name','drg_definition'],values=['average_total_payments'],aggfunc='mean')
 st.dataframe(dataframe_pivot)
 
+st.markdown('SBU Hospital Inpatient Q: What are the most expesive drugs comparing Stony Brook average total payments for DRG?')
+st.markdown(' Answer: 1. ECMO or TRACH - $216636.88, 2. Trach W MV - $132951.87, 3. Cranio W Major Dev - $69981.35.')
+st.markdown('All three have the most expesnive total average payments for drg_definition with df_Hospital and df_Inpatient')
+           
 
 
 
