@@ -148,9 +148,7 @@ st.markdown('CA leads the most for total averge discharge payments for 853 - INF
 st.header('The total average payments for provider id, drg definitions, and each total average payment')
 st.dataframe(costs_condition_hospital)
 
-st.header('Breakdown of each state with each drg definition with total payments average')
-costs_condition_hospital = df_Inpatient.groupby(['provider_id', 'drg_definition'])['average_total_payments'].sum().reset_index()
-st.datafrme(costs_condition_hospital)
+
 
 
 
