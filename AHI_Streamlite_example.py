@@ -123,12 +123,6 @@ st.subheader('Bar chart displaying different outpatient providers in North Carol
 fig3 = px.bar(bar3, x='index', y='provider_name')
 st.plotly_chart(fig3)
 
-Outpatient_nc_gps = Outpatient_nc['location'].str.strip('()').str.split(' ', expand=True).rename(columns={0: 'Point', 1:'lon', 2:'lat'})  
-Outpatient_ny_gps['lon'] = Outpatient_nc_gps['lon'].str.strip('(')
-Outpatient_nc_gps = Outpatient_nc_gps.dropna()
-Outpatient_nc_gps['lon'] = pd.to_numeric(Outpatient_nc_gps['lon'])
-Outpatient_nc_gps['lat'] = pd.to_numeric(Outpatient_nc_gps['lat'])
-
 st.header('Inpatient Data')
 st.dataframe(df_Inpatient)
 
