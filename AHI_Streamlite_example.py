@@ -11,6 +11,13 @@ import plotly.express as px
 
 st.title('Streamlit Final Assignment')
 st.write('AshKate98 Dashboard!') 
+st.write('Questions pertainting to Hopsital, Outpatient, AND Inpatient Data')
+st.write('1. Hospital Q: What are the most common hospital type? For New York how many Acute care Hospitals are ranked number 1?')
+st.wrtie('2. Oupatient Q: How many outpatient facilities are there within each state and how do they compare?')
+st.write('3. Inpatient Question: What are the most expensive drg_definitions for each NY state and top 3 average total payments overall?')
+st.write('4. Stony Brook Question comparison to North carolina?')
+st.write('5. Top Stony Brook APC?')
+st.write('6. Top Stony Brook DRG?')
 
 df_Hospital = pd.read_csv('https://raw.githubusercontent.com/hantswilliams/AHI_DataSci_507/main/Deployment_Streamlit/hospital_info.csv')
 
