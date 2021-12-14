@@ -67,11 +67,14 @@ st.subheader('Hospital data Pivot Table')
 dataframe_pivot = df_Hospital.pivot_table(index=['hospital_ownership','hospital_type'],values=['hospital_overall_rating'],aggfunc='count')
 st.dataframe(dataframe_pivot)
 
-State_acute_1 = df_Hospital[df_Hospital['hospital_overall_rating'] == '1']
-State_acute_1=df_Hospital.loc[(df_Hospital["hospital_type"]=="Acute Care Hospitals") & (df_Hospital["hospital_overall_rating"]=="1"),["state"]]
-st.subheader('Hospital Type - Acute Care Hospitals')
-bar1 = state_acute_1['hospital_type'].value_counts().reset_index()
-st.dataframe(bar1)
+st.subheader('Acute Care Hospitals with 1 rating')
+State_acute_1 = df_Hospital[df_Hopsital['provider_state'] == 'NY']
+bar2 = State_acute_1['hospital_overall_rating'].value_counts().reset_index()
+st.dataframe(bar2)
+
+st.subheader('Bar chart displaying Acute Care Hopitals within NY with 1 rating:')
+fig3 = px.bar(bar2, x=''Total number of Acute Care hospitals with 1 rating', y='states')
+st.plotly_chart(fig3)
 
 st.header('Outpatient Data')
 st.dataframe(df_Outpatient)
