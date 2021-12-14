@@ -67,6 +67,7 @@ st.subheader('Hospital data Pivot Table')
 dataframe_pivot = df_Hospital.pivot_table(index=['hospital_ownership','hospital_type'],values=['hospital_overall_rating'],aggfunc='count')
 st.dataframe(dataframe_pivot)
 
+State_acute_1 = df_Hospital[df_Hospital['hospital_overall_rating'] == '1']
 State_acute_1=df_Hospital.loc[(df_Hospital["hospital_type"]=="Acute Care Hospitals") & (df_Hospital["hospital_overall_rating"]=="1"),["state"]]
 st.subheader('Hospital Type - Acute Care Hospitals')
 bar1 = state_acute_1['hospital_type'].value_counts().reset_index()
