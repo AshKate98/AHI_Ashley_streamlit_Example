@@ -124,6 +124,6 @@ st.plotly_chart(fig)
 
 st.subheader('Total discharges per state for Inpatient')
 st.subheader('Total Discharge Pivot Table')
-dataframe_pivot = df_Inpatient.pivot_table(index=['provider_state','total_discharges'],values=['total_discharges'],aggfunc='count')
+dataframe_pivot = df_Inpatient.pivot_table(index=['provider_state','total_discharges'],values=['total_discharges'],aggfunc='mean')
 st.dataframe(dataframe_pivot)
 
