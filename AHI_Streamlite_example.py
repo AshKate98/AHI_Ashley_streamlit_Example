@@ -81,7 +81,7 @@ st.subheader('Acute Care Hospitals in NY with 1 rating')
 State_acute_1 = df_Hospital[df_Hospital['state'] == 'NY']
 bar2 = State_acute_1['hospital_overall_rating'].value_counts().reset_index()
 st.dataframe(bar2)
-markdown('Here we can see tht there re 46 Acute Care Hospitals within NY with a 1 rating')
+st.markdown('Here we can see that there are 46 Acute Care Hospitals within NY with a 1 rating in the hospital dataset')
 
 st.subheader('Bar chart displaying Acute Care Hospitals within NY with 1 rating:')
 fig3 = px.bar(bar2, x='index', y='hospital_overall_rating')
