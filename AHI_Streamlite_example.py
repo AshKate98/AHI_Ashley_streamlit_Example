@@ -10,6 +10,10 @@ import numpy as np
 import plotly.express as px
 
 st.title('Streamlit Final Assignment')
+my_bar = st.progress(0)
+for percent_complete in range(100):
+time.sleep(0.1)
+my_bar.progress(percent_complete + 1)
 st.write('Questions pertaining to Hospital, Outpatient, and Inpatient Data:')
 st.write('1. Hospital Q: What are the most common hospital type? For New York how many Acute care Hospitals are ranked number 1?')
 st.write('2. Oupatient Q: How many outpatient facilities are there within each state and how do they compare?')
